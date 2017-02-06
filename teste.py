@@ -1,38 +1,50 @@
 import sys
 import telepot
 import praw
+import random
 from telepot.namedtuple import InlineQueryResultArticle, InputTextMessageContent
 
 checkWords = ['i.imgur.com',  'jpg', 'png',]
+already_done = list()
 
-r = praw.Reddit(client_id='Igz_l72azyYSag',
-                 client_secret='6RqOPrzRQC79SabNbIktD-QkoYA',
-                 password='somethinghere',
-                 user_agent='testscript by /u/scripaman',
-                 username='scripaman')
 
 def retrieve_something_from_subreddit(query_string):
+    r = praw.Reddit(client_id='Igz_l72azyYSag',
+                     client_secret='6RqOPrzRQC79SabNbIktD-QkoYA',
+                     password='somethinghere',
+                     user_agent='testscript by /u/scripaman',
+                     username='scripaman')
     subreddit = r.subreddit(query_string)
-    already_done = list()
-    for submission in subreddit.hot(limit=1):
-        url_text = submission.url
-        has_domain = any(string in url_text for string in checkWords)
-        print '[LOG] getting url: ' + url_text
-        if submission.id not in already_done and has_domain:
-            already_done.append(submission.id)
-            print '[LOG] Done Getting ' + url_text
-    return url_text
+    submissions = subreddit.hot()
+    #limit = 100
+    #randNumber = random.randint(1,limit)
+
+    for submission in submissions:
+        if submission.id in already_done:
+            continue
+        else:
+            break
+
+
+    url_text = submission.url
+    print '[LOG] getting url: ' + url_text
+    already_done.append(submission.id)
+    print '[LOG] Done Getting ' + url_text
+
+    return submission
 
 def on_inline_query(msg):
     def compute():
         query_id, from_id, query_string = telepot.glance(msg, flavor='inline_query')
         print('Inline Query:', query_id, from_id, query_string)
 
+        response = retrieve_something_from_subreddit(query_string)
+
         articles = [InlineQueryResultArticle(
                         id='abc',
-                        title=query_string,
+                        title=response.title,
                         input_message_content=InputTextMessageContent(
-                            message_text=retrieve_something_from_subreddit(query_string)
+                            message_text=response.url
                         )
                    )]
 
