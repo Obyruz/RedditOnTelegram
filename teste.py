@@ -4,16 +4,18 @@ import praw
 import random
 from telepot.namedtuple import InlineQueryResultArticle, InputTextMessageContent
 
-checkWords = ['i.imgur.com',  'jpg', 'png',]
 already_done = list()
 
+TOKEN = sys.argv[1]  # get token from command-line
+user = sys.argv[2]
+password = sys.argv[3]
 
 def retrieve_something_from_subreddit(query_string):
     r = praw.Reddit(client_id='Igz_l72azyYSag',
-                     client_secret='6RqOPrzRQC79SabNbIktD-QkoYA',
-                     password='somethinghere',
-                     user_agent='testscript by /u/scripaman',
-                     username='scripaman')
+                    client_secret='6RqOPrzRQC79SabNbIktD-QkoYA',
+                    password=password,
+                    user_agent='testscript by /u/scripaman',
+                    username=user)
     subreddit = r.subreddit(query_string)
     submissions = subreddit.hot()
     #limit = 100
@@ -56,7 +58,6 @@ def on_chosen_inline_result(msg):
     result_id, from_id, query_string = telepot.glance(msg, flavor='chosen_inline_result')
     print ('Chosen Inline Result:', result_id, from_id, query_string)
 
-TOKEN = sys.argv[1]  # get token from command-line
 
 bot = telepot.Bot(TOKEN)
 answerer = telepot.helper.Answerer(bot)
