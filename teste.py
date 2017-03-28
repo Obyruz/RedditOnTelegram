@@ -11,11 +11,12 @@ user = sys.argv[2]
 password = sys.argv[3]
 
 def retrieve_something_from_subreddit(query_string):
-    r = praw.Reddit(client_id='Igz_l72azyYSag',
-                    client_secret='6RqOPrzRQC79SabNbIktD-QkoYA',
+    r = praw.Reddit(client_id='xawRpGMefmhiQA',
+                    client_secret='Zjqm6ia5a8Gmx8s5ioNNKZPVebU',
                     password=password,
                     user_agent='testscript by /u/scripaman',
                     username=user)
+    r.config._ssl_url = None
     subreddit = r.subreddit(query_string)
     submissions = subreddit.hot()
     #limit = 100
@@ -29,9 +30,9 @@ def retrieve_something_from_subreddit(query_string):
 
 
     url_text = submission.url
-    print '[LOG] getting url: ' + url_text
+    print ('[LOG] getting url: ' + url_text)
     already_done.append(submission.id)
-    print '[LOG] Done Getting ' + url_text
+    print ('[LOG] Done Getting ' + url_text)
 
     return submission
 
