@@ -16,44 +16,60 @@ def retrieve_something_from_subreddit(query_string):
                     password=password,
                     user_agent='testscript by /u/scripaman',
                     username=user)
-    r.config._ssl_url = None
     subreddit = r.subreddit(query_string)
-    submissions = subreddit.hot()
+    submissions = subreddit.hot(limit=10)
+#    for submission in submissions:
+#        vars(submission)
+#    count = 0
+#    for submission in submissions:
+#        print ('Submissão número: ' + str(count) + '\n')
+#        print (submission)
+#        count += 1
     #limit = 100
     #randNumber = random.randint(1,limit)
 
-    for submission in submissions:
-        if submission.id in already_done:
-            continue
-        else:
-            break
 
+#    url_text = submission.url
+#    print ('[LOG] getting url: ' + url_text)
+#    already_done.append(submission.id)
+#    print ('[LOG] Done Getting ' + url_text)
 
-    url_text = submission.url
-    print ('[LOG] getting url: ' + url_text)
-    already_done.append(submission.id)
-    print ('[LOG] Done Getting ' + url_text)
-
-    return submission
+    return submissions
 
 def on_inline_query(msg):
-    def compute():
-        query_id, from_id, query_string = telepot.glance(msg, flavor='inline_query')
-        print('Inline Query:', query_id, from_id, query_string)
+    query_id, from_id, query_string = telepot.glance(msg, flavor='inline_query')
+    print ('Inline Query:', query_id, from_id, query_string)
 
-        response = retrieve_something_from_subreddit(query_string)
+    responses = retrieve_something_from_subreddit(query_string)
 
-        articles = [InlineQueryResultArticle(
-                        id='abc',
-                        title=response.title,
-                        input_message_content=InputTextMessageContent(
-                            message_text=response.url
-                        )
-                   )]
+    count = 0
+    for response in responses:
+        if count == 0:
+            articles = [InlineQueryResultArticle(
+                            id=response.id,
+                            title=response.title,
+                            thumb_url=response.url,
+                            thumb_width=350,
+                            thumb_height=350,
+                            input_message_content=InputTextMessageContent(
+                                message_text=response.url
+                            )
+                       )]
+            count += 1
+        else:
+            articles += [InlineQueryResultArticle(
+                            id=response.id,
+                            title=response.title,
+                            thumb_url=response.url,
+                            thumb_width=350,
+                            thumb_height=350,                            
+                            input_message_content=InputTextMessageContent(
+                                message_text=response.url
+                            )
+                       )]
+            
+    bot.answerInlineQuery(query_id, articles)
 
-        return articles
-
-    answerer.answer(msg, compute)
 
 def on_chosen_inline_result(msg):
     result_id, from_id, query_string = telepot.glance(msg, flavor='chosen_inline_result')
@@ -61,7 +77,7 @@ def on_chosen_inline_result(msg):
 
 
 bot = telepot.Bot(TOKEN)
-answerer = telepot.helper.Answerer(bot)
+#answerer = telepot.helper.Answerer(bot)
 
 bot.message_loop({'inline_query': on_inline_query,
                   'chosen_inline_result': on_chosen_inline_result},
