@@ -17,7 +17,7 @@ def retrieve_something_from_subreddit(query_string):
                     user_agent='testscript by /u/scripaman',
                     username=user)
     subreddit = r.subreddit(query_string)
-    submissions = subreddit.hot(limit=10)
+    submissions = subreddit.hot(limit=25)
 #    for submission in submissions:
 #        vars(submission)
 #    count = 0
