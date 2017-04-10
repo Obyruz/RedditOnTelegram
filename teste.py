@@ -46,9 +46,12 @@ def on_inline_query(msg):
 
         count = 0
         for response in responses:
+            iimgur = ''
+
             urlFormat = response.url[-4:]
             if response.url[:5] == 'https':
                 gfycat = response.url[8:14]
+                iimgur = response.url[9:10]
             else:
                 gfycat = response.url[7:13]
 
@@ -56,6 +59,9 @@ def on_inline_query(msg):
                 response.url = response.url[:-1]
             if gfycat == 'gfycat':
                 response.url = 'https://thumbs.gfycat.com/' + response.url[19:] + '-small.gif'
+            if iimgur == 'i.':
+                response.url = response.url[:5] + response.url[11:]
+                response.url = response.url[:-3]
 
             print(response.url)
 
