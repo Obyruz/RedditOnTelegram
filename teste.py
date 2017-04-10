@@ -16,8 +16,6 @@ r = praw.Reddit(client_id='xawRpGMefmhiQA',
                 user_agent='testscript by /u/scripaman',
                 username=user)
 
-outputFile = open(log, 'w+')
-
 def retrieve_something_from_subreddit(query_string):
     subreddit = r.subreddit(query_string)
     submissions = subreddit.hot(limit=25)
@@ -42,8 +40,7 @@ def retrieve_something_from_subreddit(query_string):
 def on_inline_query(msg):
     def compute():
         query_id, from_id, query_string = telepot.glance(msg, flavor='inline_query')
-	
-        outputFile.write('Inline Query: ' + query_id + ' ' + from_id + ' ' + query_string + '\n')
+        print ('Inline Query:', query_id, from_id, query_string)
 
         responses = retrieve_something_from_subreddit(query_string)
 
@@ -124,8 +121,7 @@ def on_inline_query(msg):
 
 def on_chosen_inline_result(msg):
     result_id, from_id, query_string = telepot.glance(msg, flavor='chosen_inline_result')
-
-    outputFile.write('Chosen Inline Result: ' + result_id + ' ' + from_id + ' ' + query_string + '\n)
+    print ('Chosen Inline Result:', result_id, from_id, query_string)
 
 
 bot = telepot.Bot(TOKEN)
