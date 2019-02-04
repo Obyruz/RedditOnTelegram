@@ -1,5 +1,6 @@
 import sys
 import telepot
+import urllib3
 import praw
 import random as rand
 from telepot.namedtuple import InlineQueryResultArticle, InputTextMessageContent, InlineQueryResultGif, InlineQueryResultPhoto
