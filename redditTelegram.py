@@ -132,15 +132,15 @@ def on_inline_query(msg):
                                     video_height=50,
                                     mime_type='video/mp4'
                                 )]
-            else:
-                articles = [InlineQueryResultArticle(
-                                id=response.id,
-                                title=response.title,
-                                thumb_url=response.url,
-                                input_message_content=InputTextMessageContent(
-                                    message_text=response.url + ' powered by: ' + response.subreddit_name_prefixed
-                                )
-                           )]
+                else:
+                    articles = [InlineQueryResultArticle(
+                                    id=response.id,
+                                    title=response.title,
+                                    thumb_url=response.url,
+                                    input_message_content=InputTextMessageContent(
+                                        message_text=response.url + ' powered by: ' + response.subreddit_name_prefixed
+                                    )
+                               )]
             else:
                 if response.url[-3:] == 'gif' or response.url[-4:] == 'gifv':
                     articles += [InlineQueryResultGif(
