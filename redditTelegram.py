@@ -83,6 +83,7 @@ def on_inline_query(msg):
         query_id, from_id, query_string = telepot.glance(msg, flavor='inline_query')
         print ('Inline Query:', query_id, from_id, query_string)
 
+        count = 0
         responses = retrieve_something_from_subreddit(query_string)
 
         for response in responses:
@@ -99,39 +100,40 @@ def on_inline_query(msg):
                 response.url = 'https://thumbs.gfycat.com/' + response.url[19:] + '-small.gif'
 
             print(response.url)
-
-            if response.url[-3:] == 'gif' or response.url[-4:] == 'gifv':
-                articles += [InlineQueryResultGif(
-                                id=response.id,
-                                type='gif',
-                                title=response.title,
-                                gif_width=50,
-                                gif_height=50,
-                                gif_url=response.url,
-                                thumb_url=response.url
-                           )]
-            elif response.url[-3:] == 'png' or response.url[-3:] == 'jpg' or result.url[8:17] == "i.redd.it":
-                articles += [InlineQueryResultPhoto(
-                                id=response.id,
-                                type='photo',
-                                photo_url=response.url,
-                                thumb_url=response.url,
-                                photo_width=50,
-                                photo_height=50
-                           )]
-            elif result.url[8:17] == "v.redd.it":
-                articles += [InlineQueryResultVideo(
-                                id=response.id,
-                                type='video',
-                                title=response.title,
-                                video_url=response.url,
-                                thumb_url=response.url,
-                                video_width=50,
-                                video_height=50,
-                                mime_type='video/mp4'
-                            )]
+            
+            if count == 0:
+                if response.url[-3:] == 'gif' or response.url[-4:] == 'gifv':
+                    articles = [InlineQueryResultGif(
+                                    id=response.id,
+                                    type='gif',
+                                    title=response.title,
+                                    gif_width=50,
+                                    gif_height=50,
+                                    gif_url=response.url,
+                                    thumb_url=response.url
+                               )]
+                elif response.url[-3:] == 'png' or response.url[-3:] == 'jpg' or response.url[8:17] == "i.redd.it":
+                    articles = [InlineQueryResultPhoto(
+                                    id=response.id,
+                                    type='photo',
+                                    photo_url=response.url,
+                                    thumb_url=response.url,
+                                    photo_width=50,
+                                    photo_height=50
+                               )]
+                elif response.url[8:17] == "v.redd.it":
+                    articles = [InlineQueryResultVideo(
+                                    id=response.id,
+                                    type='video',
+                                    title=response.title,
+                                    video_url=response.url,
+                                    thumb_url=response.url,
+                                    video_width=50,
+                                    video_height=50,
+                                    mime_type='video/mp4'
+                                )]
             else:
-                articles += [InlineQueryResultArticle(
+                articles = [InlineQueryResultArticle(
                                 id=response.id,
                                 title=response.title,
                                 thumb_url=response.url,
@@ -139,6 +141,46 @@ def on_inline_query(msg):
                                     message_text=response.url + ' powered by: ' + response.subreddit_name_prefixed
                                 )
                            )]
+            else:
+                if response.url[-3:] == 'gif' or response.url[-4:] == 'gifv':
+                    articles += [InlineQueryResultGif(
+                                    id=response.id,
+                                    type='gif',
+                                    title=response.title,
+                                    gif_width=50,
+                                    gif_height=50,
+                                    gif_url=response.url,
+                                    thumb_url=response.url
+                               )]
+                elif response.url[-3:] == 'png' or response.url[-3:] == 'jpg' or response.url[8:17] == "i.redd.it":
+                    articles += [InlineQueryResultPhoto(
+                                    id=response.id,
+                                    type='photo',
+                                    photo_url=response.url,
+                                    thumb_url=response.url,
+                                    photo_width=50,
+                                    photo_height=50
+                               )]
+                elif response.url[8:17] == "v.redd.it":
+                    articles += [InlineQueryResultVideo(
+                                    id=response.id,
+                                    type='video',
+                                    title=response.title,
+                                    video_url=response.url,
+                                    thumb_url=response.url,
+                                    video_width=50,
+                                    video_height=50,
+                                    mime_type='video/mp4'
+                                )]
+                else:
+                    articles += [InlineQueryResultArticle(
+                                    id=response.id,
+                                    title=response.title,
+                                    thumb_url=response.url,
+                                    input_message_content=InputTextMessageContent(
+                                        message_text=response.url + ' powered by: ' + response.subreddit_name_prefixed
+                                    )
+                               )]
         return articles
 
     answerer.answer(msg, compute)
