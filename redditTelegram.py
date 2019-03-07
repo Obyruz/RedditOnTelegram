@@ -48,10 +48,13 @@ def random(msg):
         if gfycat == 'gfycat':
             result.url = 'https://thumbs.gfycat.com/' + result.url[19:] + '-small.gif'
 
-        if result.url[-3:] == 'jpg' or result.url[-3:] == 'png':
+        if result.url[-3:] == 'jpg' or result.url[-3:] == 'png' or result.url[8:17] == "i.redd.it":
+            print("Imagem: " + result.url)
             bot.sendPhoto(chat_id, result.url)
         elif gfycat == 'gfycat' or result.url[-3:] == 'gif' or result.url[-4:] == 'gifv':
             bot.sendDocument(chat_id, result.url)
+        elif result.url[8:17] == "v.redd.it":
+            bot.sendVideo(chat_id, result.url)
         else:
             bot.sendMessage(chat_id, result.url)
     bot.sendMessage(chat_id, 'powered by: ' + subredditName)
