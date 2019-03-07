@@ -75,30 +75,30 @@ def retrieve_random_submission():
 def retrieve_something_from_subreddit(query_string):
     subreddit = r.subreddit(query_string)
     submissions = subreddit.hot(limit=25)
-
+    
     return submissions
 
 def on_inline_query(msg):
     def compute():
         query_id, from_id, query_string = telepot.glance(msg, flavor='inline_query')
         print ('Inline Query:', query_id, from_id, query_string)
-
-        count = 0
+        
         responses = retrieve_something_from_subreddit(query_string)
-
+        
+        count = 0
         for response in responses:
             urlFormat = response.url[-4:]
-
+            
             if response.url[:5] == 'https':
                 gfycat = response.url[8:14]
             else:
                 gfycat = response.url[7:13]
-
+            
             if urlFormat == 'gifv':
                 response.url = response.url[:-1]
             if gfycat == 'gfycat':
                 response.url = 'https://thumbs.gfycat.com/' + response.url[19:] + '-small.gif'
-
+            
             print(response.url)
             
             if count == 0:
@@ -132,6 +132,7 @@ def on_inline_query(msg):
                                     video_height=50,
                                     mime_type='video/mp4'
                                 )]
+                    count += 1
                 else:
                     articles = [InlineQueryResultArticle(
                                     id=response.id,
