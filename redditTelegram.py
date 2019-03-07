@@ -3,7 +3,7 @@ import telepot
 import urllib3
 import praw
 import random as rand
-from telepot.namedtuple import InlineQueryResultArticle, InputTextMessageContent, InlineQueryResultGif, InlineQueryResultPhoto
+from telepot.namedtuple import InlineQueryResultArticle, InputTextMessageContent, InlineQueryResultGif, InlineQueryResultPhoto, InlineQueryResultVideo
 
 proxy_url = "http://proxy.server:3128"
 telepot.api._pools = {
