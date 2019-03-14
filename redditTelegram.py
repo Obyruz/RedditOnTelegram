@@ -45,14 +45,14 @@ def random(msg):
         else:
             gfycat = result.url[7:13]
 
-        if gfycat == 'gfycat':
-            result.url = 'https://thumbs.gfycat.com/' + result.url[19:] + '-small.gif'
+ #       if gfycat == 'gfycat':
+ #           result.url = 'https://thumbs.gfycat.com/' + result.url[19:] + '-mobile.mp4'
 
         if result.url[-3:] == 'jpg' or result.url[-3:] == 'png' or result.url[8:17] == "i.redd.it":
             print("Imagem: " + result.url)
             bot.sendPhoto(chat_id, result.url)
         elif gfycat == 'gfycat' or result.url[-3:] == 'gif' or result.url[-4:] == 'gifv':
-            bot.sendDocument(chat_id, result.url)
+            bot.sendVideo(chat_id, result.url)
         elif result.url[8:17] == "v.redd.it":
             bot.sendVideo(chat_id, result.url)
         else:
@@ -97,87 +97,110 @@ def on_inline_query(msg):
             if urlFormat == 'gifv':
                 response.url = response.url[:-1]
             if gfycat == 'gfycat':
-                response.url = 'https://thumbs.gfycat.com/' + response.url[19:] + '-small.gif'
-            
+                response.url = 'https://thumbs.gfycat.com/' + response.url[19:] + '-mobile.mp4'
+
             print(response.url)
-            
+
             if count == 0:
-                if response.url[-3:] == 'gif' or response.url[-4:] == 'gifv':
-                    articles = [InlineQueryResultGif(
-                                    id=response.id,
-                                    type='gif',
-                                    title=response.title,
-                                    gif_width=50,
-                                    gif_height=50,
-                                    gif_url=response.url,
-                                    thumb_url=response.url
-                               )]
-                elif response.url[-3:] == 'png' or response.url[-3:] == 'jpg' or response.url[8:17] == "i.redd.it":
+                if response.url[-3:] == 'gif' or response.url[-4:] == 'gifv' or gfycat == 'gfycat':
+                    if (gfycat == 'gfycat' and response.media):
+                        articles = [InlineQueryResultGif(
+                                        id=response.id,
+                                        type='gif',
+                                        title=response.title,
+                                        gif_width=50,
+                                        gif_height=50,
+                                        gif_url=response.url,
+                                        thumb_url=response.thumbnail
+                                   )]
+                    elif gfycat != 'gfycat':
+                        articles = [InlineQueryResultGif(
+                                        id=response.id,
+                                        type='gif',
+                                        title=response.title,
+                                        gif_url=response.url,
+                                        thumb_url=response.thumbnail
+                                    )]
+                elif response.url[-3:] == 'png' or response.url[-3:] == 'jpg':
+#                or response.url[8:17] == "i.redd.it":
                     articles = [InlineQueryResultPhoto(
                                     id=response.id,
                                     type='photo',
                                     photo_url=response.url,
-                                    thumb_url=response.url,
+                                    thumb_url=response.thumbnail,
                                     photo_width=50,
                                     photo_height=50
                                )]
-                elif response.url[8:17] == "v.redd.it":
-                    articles = [InlineQueryResultVideo(
-                                    id=response.id,
-                                    type='video',
-                                    title=response.title,
-                                    video_url=response.url,
-                                    thumb_url=response.url,
-                                    video_width=50,
-                                    video_height=50,
-                                    mime_type='video/mp4'
-                                )]
-                    count += 1
+                #elif response.url[8:17] == "v.redd.it":
+                #    pass
+                #    articles = [InlineQueryResultVideo(
+                #                    id=response.id,
+                #                    type='video',
+                #                    title=response.title,
+                #                    video_url=response.url,
+                #                    thumb_url=response.thumbnail,
+                #                    video_width=50,
+                #                    video_height=50,
+                #                    mime_type='text/html'
+                #                )]
                 else:
                     articles = [InlineQueryResultArticle(
                                     id=response.id,
                                     title=response.title,
-                                    thumb_url=response.url,
+                                    thumb_url=response.thumbnail,
                                     input_message_content=InputTextMessageContent(
                                         message_text=response.url + ' powered by: ' + response.subreddit_name_prefixed
                                     )
                                )]
+                count += 1
             else:
-                if response.url[-3:] == 'gif' or response.url[-4:] == 'gifv':
-                    articles += [InlineQueryResultGif(
-                                    id=response.id,
-                                    type='gif',
-                                    title=response.title,
-                                    gif_width=50,
-                                    gif_height=50,
-                                    gif_url=response.url,
-                                    thumb_url=response.url
-                               )]
+                if response.url[-3:] == 'gif' or response.url[-4:] == 'gifv' or gfycat == 'gfycat':
+                    if (gfycat == 'gfycat' and response.media):
+                        articles += [InlineQueryResultGif(
+                                        id=response.id,
+                                        type='gif',
+                                        title=response.title,
+                                        gif_width=50,
+                                        gif_height=50,
+                                        gif_url=response.url,
+                                        thumb_url=response.thumbnail
+                                   )]
+                    elif gfycat != 'gfycat':
+                        articles += [InlineQueryResultGif(
+                                         id=response.id,
+                                         type='gif',
+                                         title=response.title,
+                                         gif_width=50,
+                                         gif_height=50,
+                                         gif_url=response.url,                                                                                           
+                                         thumb_url=response.thumbnail
+                                    )]
                 elif response.url[-3:] == 'png' or response.url[-3:] == 'jpg' or response.url[8:17] == "i.redd.it":
                     articles += [InlineQueryResultPhoto(
                                     id=response.id,
                                     type='photo',
                                     photo_url=response.url,
-                                    thumb_url=response.url,
+                                    thumb_url=response.thumbnail,
                                     photo_width=50,
                                     photo_height=50
                                )]
-                elif response.url[8:17] == "v.redd.it":
-                    articles += [InlineQueryResultVideo(
-                                    id=response.id,
-                                    type='video',
-                                    title=response.title,
-                                    video_url=response.url,
-                                    thumb_url=response.url,
-                                    video_width=50,
-                                    video_height=50,
-                                    mime_type='video/mp4'
-                                )]
+                #elif response.url[8:17] == "v.redd.it":
+                #    pass
+                #    articles += [InlineQueryResultVideo(
+                #                    id=response.id,
+                #                    type='video',
+                #                    title=response.title,
+                #                    video_url=response.url,
+                #                    thumb_url=response.thumbnail,
+                #                    video_width=50,
+                #                    video_height=50,
+                #                    mime_type='text/html'
+                #                )]
                 else:
                     articles += [InlineQueryResultArticle(
                                     id=response.id,
                                     title=response.title,
-                                    thumb_url=response.url,
+                                    thumb_url=response.thumbnail,
                                     input_message_content=InputTextMessageContent(
                                         message_text=response.url + ' powered by: ' + response.subreddit_name_prefixed
                                     )
