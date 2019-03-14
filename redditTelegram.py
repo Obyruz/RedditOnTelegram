@@ -56,7 +56,10 @@ def random(msg):
             gfycat = result.url[7:13]
 
         if gfycat == 'gfycat':
-            json_data = subprocess.run(["curl", "-X", "GET", "https://api.gfycat.com/v1/gfycats/" + result.url, "-H", "Authorization: Bearer " + gfycat_bearer["acess_token"]])
+            pos_id = [pos for pos, char in enumerate(s) if char == '/']
+            gfycat_id = gfycat_id[pos_id+1:]
+            
+            json_data = subprocess.run(["curl", "-X", "GET", "https://api.gfycat.com/v1/gfycats/" + pos_id, "-H", "Authorization: Bearer " + gfycat_bearer["acess_token"]])
             gfycat_json = json.loads(json_data)
 
         if result.url[-3:] == 'jpg' or result.url[-3:] == 'png' or result.url[8:17] == "i.redd.it":
@@ -128,7 +131,10 @@ def on_inline_query(msg):
                                         thumb_url=response.url
                                    )]
                     elif gfycat == 'gfycat':
-                        json_data = subprocess.run(["curl", "-X", "GET", "https://api.gfycat.com/v1/gfycats/" + result.url, "-H", "Authorization: Bearer " + gfycat_bearer["acess_token"]])
+                        pos_id = [pos for pos, char in enumerate(s) if char == '/']
+                        gfycat_id = gfycat_id[pos_id+1:]
+                        
+                        json_data = subprocess.run(["curl", "-X", "GET", "https://api.gfycat.com/v1/gfycats/" + gfycat_id, "-H", "Authorization: Bearer " + gfycat_bearer["acess_token"]])
                         gfycat_json = json.loads(json_data)
                         
                         articles = [InlineQueryResultGif(
