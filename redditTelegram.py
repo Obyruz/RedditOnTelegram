@@ -22,7 +22,7 @@ gfycat_user = sys.argv[4]
 gfycat_TOKEN = sys.argv[5]
 
 gfycat_auth = "https://api.gfycat.com/v1/oauth/token"
-gfycat_credentials = '{"client_id":gfycat_user, "client_secret": gfycat_TOKEN, "grant_type": "client_credentials"}'
+gfycat_credentials = '{"client_id": "'+gfycat_user+'", "client_secret": "'+gfycat_TOKEN+'", "grant_type": "client_credentials"}'
 
 r = praw.Reddit(client_id='xawRpGMefmhiQA',
                 client_secret='Zjqm6ia5a8Gmx8s5ioNNKZPVebU',
@@ -42,7 +42,7 @@ def handle(msg):
 def random(msg):
     content_type, chat_type, chat_id = telepot.glance(msg)
     
-    json_data = subprocess.run(["curl", "-v", "-XPOST", "-d", gfycat_credentials, gfycat_auth], capture_output=True)
+    json_data = subprocess.run(["curl", "-XPOST", "-d", gfycat_credentials, gfycat_auth], capture_output=True).stdout
     gfycat_bearer = json.loads(json_data)
     
     if msg['text'] == '/random' or msg['text'] == '/random@redditTelegram_bot':
@@ -56,10 +56,10 @@ def random(msg):
             gfycat = result.url[7:13]
 
         if gfycat == 'gfycat':
-            pos_id = [pos for pos, char in enumerate(s) if char == '/']
-            gfycat_id = gfycat_id[pos_id+1:]
+            pos_id = [pos for pos, char in enumerate(result.url) if char == '/']
+            gfycat_id = result.url[pos_id[-1]+1:]
             
-            json_data = subprocess.run(["curl", "-X", "GET", "https://api.gfycat.com/v1/gfycats/" + pos_id, "-H", "Authorization: Bearer " + gfycat_bearer["acess_token"]])
+            json_data = subprocess.run(["curl", "-X", "GET", "https://api.gfycat.com/v1/gfycats/" + gfycat_id, "-H", "Authorization: Bearer "+gfycat_bearer["access_token"]], capture_output=True).stdout
             gfycat_json = json.loads(json_data)
 
         if result.url[-3:] == 'jpg' or result.url[-3:] == 'png' or result.url[8:17] == "i.redd.it":
@@ -67,6 +67,7 @@ def random(msg):
         elif gfycat == 'gfycat' or result.url[-3:] == 'gif' or result.url[-4:] == 'gifv':
             bot.sendVideo(chat_id, result.url)
         elif gfycat == 'gfycat':
+            print(gfycat_json["gfyItem"])
             bot.sendVideo(chat_id, gfycat_json["gfyItem"]["max5mbGif"])
         elif result.url[8:17] == "v.redd.it":
             bot.sendVideo(chat_id, result.url)
@@ -100,8 +101,7 @@ def on_inline_query(msg):
         
         responses = retrieve_something_from_subreddit(query_string)
         
-        json_data = subprocess.run(["curl", "-XPOST", "-d", gfycat_credentials, gfycat_auth], capture_output=True)
-        print(json_data)
+        json_data = subprocess.run(["curl", "-XPOST", "-d", gfycat_credentials, gfycat_auth], capture_output=True).stdout
         gfycat_bearer = json.loads(json_data)
         
         count = 0
@@ -131,10 +131,11 @@ def on_inline_query(msg):
                                         thumb_url=response.url
                                    )]
                     elif gfycat == 'gfycat':
-                        pos_id = [pos for pos, char in enumerate(s) if char == '/']
-                        gfycat_id = gfycat_id[pos_id+1:]
+                        print("testing pos_id")
+                        pos_id = [pos for pos, char in enumerate(response.url) if char == '/']
+                        gfycat_id = response.url[pos_id[-1]+1:]
                         
-                        json_data = subprocess.run(["curl", "-X", "GET", "https://api.gfycat.com/v1/gfycats/" + gfycat_id, "-H", "Authorization: Bearer " + gfycat_bearer["acess_token"]])
+                        json_data = subprocess.run(["curl", "-X", "GET", "https://api.gfycat.com/v1/gfycats/" + gfycat_id, "-H", "Authorization: Bearer "+gfycat_bearer["access_token"]], capture_output=True).stdout
                         gfycat_json = json.loads(json_data)
                         
                         articles = [InlineQueryResultGif(
@@ -188,7 +189,11 @@ def on_inline_query(msg):
                                         thumb_url=response.url
                                    )]
                     elif gfycat == 'gfycat':
-                        json_data = subprocess.run(["curl", "-X", "GET", "https://api.gfycat.com/v1/gfycats/" + result.url, "-H", "Authorization: Bearer " + gfycat_bearer["acess_token"]])
+                        print("getting pos_id")
+                        pos_id = [pos for pos, char in enumerate(response.url) if char == '/']
+                        gfycat_id = response.url[pos_id[-1]+1:]
+
+                        json_data = subprocess.run(["curl", "-X", "GET", "https://api.gfycat.com/v1/gfycats/" + gfycat_id, "-H", "Authorization: Bearer "+gfycat_bearer["access_token"]], capture_output=True).stdout
                         gfycat_json = json.loads(json_data)
                         
                         articles += [InlineQueryResultGif(
@@ -229,10 +234,9 @@ def on_inline_query(msg):
                                             message_text=response.url + ' powered by: ' + response.subreddit_name_prefixed
                                         )
                                    )]
-            except:
+            except Exception as e:
                 print("Error at " + response.url)
-                print(response.media)
-                print(response.media_embed)
+                print(e)
         return articles
 
     answerer.answer(msg, compute)
