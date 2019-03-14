@@ -21,8 +21,8 @@ password = sys.argv[3]
 gfycat_user = sys.argv[4]
 gfycat_TOKEN = sys.argv[5]
 
-gfycat_auth = https://api.gfycat.com/v1/oauth/token
-gfycat_credentials = '{"client_id":{}, "client_secret": "{}", "grant_type": "client_credentials"}'.format(gfycat_user, gfycat_TOKEN)
+gfycat_auth = "https://api.gfycat.com/v1/oauth/token"
+gfycat_credentials = '{"client_id":gfycat_user, "client_secret": gfycat_TOKEN, "grant_type": "client_credentials"}'
 
 r = praw.Reddit(client_id='xawRpGMefmhiQA',
                 client_secret='Zjqm6ia5a8Gmx8s5ioNNKZPVebU',
@@ -56,7 +56,7 @@ def random(msg):
             gfycat = result.url[7:13]
 
         if gfycat == 'gfycat':
-            json_data = subprocess.run(["curl", "-v", "-X", "GET", "https://api.gfycat.com/v1/gfycats/" + result.url, "-H", "Authorization: Bearer " + gfycat_bearer["acess_token"]])
+            json_data = subprocess.run(["curl", "-X", "GET", "https://api.gfycat.com/v1/gfycats/" + result.url, "-H", "Authorization: Bearer " + gfycat_bearer["acess_token"]])
             gfycat_json = json.loads(json_data)
 
         if result.url[-3:] == 'jpg' or result.url[-3:] == 'png' or result.url[8:17] == "i.redd.it":
@@ -97,7 +97,8 @@ def on_inline_query(msg):
         
         responses = retrieve_something_from_subreddit(query_string)
         
-        json_data = subprocess.run(["curl", "-v", "-XPOST", "-d", gfycat_credentials, gfycat_auth], capture_output=True)
+        json_data = subprocess.run(["curl", "-XPOST", "-d", gfycat_credentials, gfycat_auth], capture_output=True)
+        print(json_data)
         gfycat_bearer = json.loads(json_data)
         
         count = 0
@@ -127,7 +128,7 @@ def on_inline_query(msg):
                                         thumb_url=response.url
                                    )]
                     elif gfycat == 'gfycat':
-                        json_data = subprocess.run(["curl", "-v", "-X", "GET", "https://api.gfycat.com/v1/gfycats/" + result.url, "-H", "Authorization: Bearer " + gfycat_bearer["acess_token"]])
+                        json_data = subprocess.run(["curl", "-X", "GET", "https://api.gfycat.com/v1/gfycats/" + result.url, "-H", "Authorization: Bearer " + gfycat_bearer["acess_token"]])
                         gfycat_json = json.loads(json_data)
                         
                         articles = [InlineQueryResultGif(
@@ -135,7 +136,7 @@ def on_inline_query(msg):
                                         type='gif',
                                         title=response.title,
                                         gif_width=10,
-                                        gif_height=10
+                                        gif_height=10,
                                         gif_url=gfycat_json["gfyItem"]["max5mbGif"],
                                         thumb_url=gfycat_json["gfyItem"]["max1mbGif"]
                                     )]
@@ -181,7 +182,7 @@ def on_inline_query(msg):
                                         thumb_url=response.url
                                    )]
                     elif gfycat == 'gfycat':
-                        json_data = subprocess.run(["curl", "-v", "-X", "GET", "https://api.gfycat.com/v1/gfycats/" + result.url, "-H", "Authorization: Bearer " + gfycat_bearer["acess_token"]])
+                        json_data = subprocess.run(["curl", "-X", "GET", "https://api.gfycat.com/v1/gfycats/" + result.url, "-H", "Authorization: Bearer " + gfycat_bearer["acess_token"]])
                         gfycat_json = json.loads(json_data)
                         
                         articles += [InlineQueryResultGif(
@@ -189,7 +190,7 @@ def on_inline_query(msg):
                                          type='gif',
                                          title=response.title,
                                          gif_width=10,
-                                         gif_height=10
+                                         gif_height=10,
                                          gif_url=gfycat_json["gfyItem"]["max5mbGif"],
                                          thumb_url=gfycat_json["gfyItem"]["max1mbGif"]
                                     )]
