@@ -3,6 +3,8 @@ import telepot
 import urllib3
 import praw
 import random as rand
+import subprocess
+import json
 from telepot.namedtuple import InlineQueryResultArticle, InputTextMessageContent, InlineQueryResultGif, InlineQueryResultPhoto, InlineQueryResultVideo
 
 proxy_url = "http://proxy.server:3128"
@@ -16,6 +18,11 @@ nsfw_list = ['gonewild','holdthemoan','RealGirls','nsfw','NSFW_GIF','nsfw_gifs',
 TOKEN = sys.argv[1]  # get token from command-line
 user = sys.argv[2]
 password = sys.argv[3]
+gfycat_user = sys.argv[4]
+gfycat_TOKEN = sys.argv[5]
+
+gfycat_auth = https://api.gfycat.com/v1/oauth/token
+gfycat_credentials = '{"client_id":{}, "client_secret": "{}", "grant_type": "client_credentials"}'.format(gfycat_user, gfycat_TOKEN)
 
 r = praw.Reddit(client_id='xawRpGMefmhiQA',
                 client_secret='Zjqm6ia5a8Gmx8s5ioNNKZPVebU',
@@ -35,6 +42,9 @@ def handle(msg):
 def random(msg):
     content_type, chat_type, chat_id = telepot.glance(msg)
     
+    json_data = subprocess.run(["curl", "-v", "-XPOST", "-d", gfycat_credentials, gfycat_auth], capture_output=True)
+    gfycat_bearer = json.loads(json_data)
+    
     if msg['text'] == '/random' or msg['text'] == '/random@redditTelegram_bot':
         result, subredditName = retrieve_random_submission()
 
@@ -45,19 +55,21 @@ def random(msg):
         else:
             gfycat = result.url[7:13]
 
- #       if gfycat == 'gfycat':
- #           result.url = 'https://thumbs.gfycat.com/' + result.url[19:] + '-mobile.mp4'
+        if gfycat == 'gfycat':
+            json_data = subprocess.run(["curl", "-v", "-X", "GET", "https://api.gfycat.com/v1/gfycats/" + result.url, "-H", "Authorization: Bearer " + gfycat_bearer["acess_token"]])
+            gfycat_json = json.loads(json_data)
 
         if result.url[-3:] == 'jpg' or result.url[-3:] == 'png' or result.url[8:17] == "i.redd.it":
-            print("Imagem: " + result.url)
             bot.sendPhoto(chat_id, result.url)
         elif gfycat == 'gfycat' or result.url[-3:] == 'gif' or result.url[-4:] == 'gifv':
-            bot.sendMessage(chat_id, result.url)
+            bot.sendVideo(chat_id, result.url)
+        elif gfycat == 'gfycat':
+            bot.sendVideo(chat_id, gfycat_json["gfyItem"]["max5mbGif"])
         elif result.url[8:17] == "v.redd.it":
             bot.sendVideo(chat_id, result.url)
         else:
             bot.sendMessage(chat_id, result.url)
-        bot.sendMessage(chat_id, 'powered by: ' + subredditName)
+        bot.sendMessage(chat_id, 'sent from: ' + subredditName)
 
     
 
@@ -85,6 +97,9 @@ def on_inline_query(msg):
         
         responses = retrieve_something_from_subreddit(query_string)
         
+        json_data = subprocess.run(["curl", "-v", "-XPOST", "-d", gfycat_credentials, gfycat_auth], capture_output=True)
+        gfycat_bearer = json.loads(json_data)
+        
         count = 0
         for response in responses:
             try:
@@ -97,43 +112,41 @@ def on_inline_query(msg):
 
                 if urlFormat == 'gifv':
                     response.url = response.url[:-1]
-                if gfycat == 'gfycat':
-                    print(response.embed)
-                    print(response.media)
-                    print(response.url)
-#                    response.url = 'https://thumbs.gfycat.com/' + response.url[19:] + '-mobile.mp4'
 
                 print(response.url)
 
                 if count == 0:
-                    if response.url[-3:] == 'gif' or response.url[-4:] == 'gifv' or gfycat == 'gfycat':
-                        if (gfycat == 'gfycat' and response.media):
-                            articles = [InlineQueryResultGif(
-                                            id=response.id,
-                                            type='gif',
-                                            title=response.title,
-                                            gif_width=50,
-                                            gif_height=50,
-                                            gif_url=response.url,
-                                            thumb_url=response.url
-                                       )]
-                        elif gfycat != 'gfycat':
-                            articles = [InlineQueryResultGif(
-                                            id=response.id,
-                                            type='gif',
-                                            title=response.title,
-                                            gif_url=response.url,
-                                            thumb_url=response.url
-                                        )]
-                    elif response.url[-3:] == 'png' or response.url[-3:] == 'jpg':
-    #                or response.url[8:17] == "i.redd.it":
+                    if response.url[-3:] == 'gif' or response.url[-4:] == 'gifv':
+                        articles = [InlineQueryResultGif(
+                                        id=response.id,
+                                        type='gif',
+                                        title=response.title,
+                                        gif_width=10,
+                                        gif_height=10,
+                                        gif_url=response.url,
+                                        thumb_url=response.url
+                                   )]
+                    elif gfycat == 'gfycat':
+                        json_data = subprocess.run(["curl", "-v", "-X", "GET", "https://api.gfycat.com/v1/gfycats/" + result.url, "-H", "Authorization: Bearer " + gfycat_bearer["acess_token"]])
+                        gfycat_json = json.loads(json_data)
+                        
+                        articles = [InlineQueryResultGif(
+                                        id=response.id,
+                                        type='gif',
+                                        title=response.title,
+                                        gif_width=10,
+                                        gif_height=10
+                                        gif_url=gfycat_json["gfyItem"]["max5mbGif"],
+                                        thumb_url=gfycat_json["gfyItem"]["max1mbGif"]
+                                    )]
+                    elif response.url[-3:] == 'png' or response.url[-3:] == 'jpg' or response.url[8:17] == "i.redd.it":
                         articles = [InlineQueryResultPhoto(
                                         id=response.id,
                                         type='photo',
                                         photo_url=response.url,
                                         thumb_url=response.url,
-                                        photo_width=50,
-                                        photo_height=50
+                                        photo_width=10,
+                                        photo_height=10
                                    )]
                     #elif response.url[8:17] == "v.redd.it":
                     #    articles = [InlineQueryResultVideo(
@@ -157,35 +170,37 @@ def on_inline_query(msg):
                                    )]
                     count += 1
                 else:
-                    if response.url[-3:] == 'gif' or response.url[-4:] == 'gifv' or gfycat == 'gfycat':
-                        if (gfycat == 'gfycat' and response.media):
-                            articles += [InlineQueryResultGif(
-                                            id=response.id,
-                                            type='gif',
-                                            title=response.title,
-                                            gif_width=50,
-                                            gif_height=50,
-                                            gif_url=response.url,
-                                            thumb_url=response.url
-                                       )]
-                        elif gfycat != 'gfycat':
-                            articles += [InlineQueryResultGif(
-                                             id=response.id,
-                                             type='gif',
-                                             title=response.title,
-                                             gif_width=50,
-                                             gif_height=50,
-                                             gif_url=response.url,                                                                                           
-                                             thumb_url=response.url
-                                        )]
+                    if response.url[-3:] == 'gif' or response.url[-4:] == 'gifv':
+                        articles += [InlineQueryResultGif(
+                                        id=response.id,
+                                        type='gif',
+                                        title=response.title,
+                                        gif_width=10,
+                                        gif_height=10,
+                                        gif_url=response.url,
+                                        thumb_url=response.url
+                                   )]
+                    elif gfycat == 'gfycat':
+                        json_data = subprocess.run(["curl", "-v", "-X", "GET", "https://api.gfycat.com/v1/gfycats/" + result.url, "-H", "Authorization: Bearer " + gfycat_bearer["acess_token"]])
+                        gfycat_json = json.loads(json_data)
+                        
+                        articles += [InlineQueryResultGif(
+                                         id=response.id,
+                                         type='gif',
+                                         title=response.title,
+                                         gif_width=10,
+                                         gif_height=10
+                                         gif_url=gfycat_json["gfyItem"]["max5mbGif"],
+                                         thumb_url=gfycat_json["gfyItem"]["max1mbGif"]
+                                    )]
                     elif response.url[-3:] == 'png' or response.url[-3:] == 'jpg' or response.url[8:17] == "i.redd.it":
                         articles += [InlineQueryResultPhoto(
                                         id=response.id,
                                         type='photo',
                                         photo_url=response.url,
                                         thumb_url=response.url,
-                                        photo_width=50,
-                                        photo_height=50
+                                        photo_width=10,
+                                        photo_height=10
                                    )]
                     #elif response.url[8:17] == "v.redd.it":
                     #    articles += [InlineQueryResultVideo(
