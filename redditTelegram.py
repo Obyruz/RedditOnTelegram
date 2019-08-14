@@ -13,7 +13,7 @@ telepot.api._pools = {
 }
 telepot.api._onetime_pool_spec = (urllib3.ProxyManager, dict(proxy_url=proxy_url, num_pools=1, maxsize=1, retries=False, timeout=30))
 
-nsfw_list = ['gonewild','holdthemoan','RealGirls','nsfw','NSFW_GIF','nsfw_gifs','rule34','LegalTeens','NSFWFunny','GirlsFinishingTheJob','OnOff','60fpsporn','hentai','TittyDrop','hugeboobs','palegirls','StraightGirlsPlaying','HappyEmbarrassedGirls','GWNerdy','wifesharing','AnalGW','Bondage','juicyasians','GirlswithGlasses','datgap','SexyButNotPorn','Blowjobs','ShinyPorn','stockings','LipsThatGrip','fitgirls','lingerie','gonewildcolor','legs','BonerMaterial','rearpussy','boobs','ecchi','grool','boltedontits','bdsm','gonewildcurvy','Amateur','WouldYouFuckMyWife','suicidegirls','altgonewild','buttplug','collegesluts','TotallyStraight','NSFW_HTML5','O_Faces','gonewildstories','gwcumsluts','AsiansGoneWild','GoneWildPlus','HighResNSFW','asshole','lesbians','CelebFakes','Innie','voluptuous','nsfwoutfits','deepthroat','GroupOfNudeGirls','thinspo','GoneWildSmiles','AmateurArchives','BigBoobsGonewild','DarkAngels','pantsu','nsfwhardcore','pussy','Stacked','tightdresses','dirtysmall','TessaFowler','FlashingGirls','treesgonewild','CelebrityButts','facedownassup','EngorgedVeinyBreasts','NSFWCostumes','girlsinleggings','bikinis','FestivalSluts','WomenOfColor','IndiansGoneWild','LabiaGW','boobbounce','leotards','bimbofetish','burstingout','randomsexiness','BDSMGW','latinas','Bottomless_Vixens','trashyboners','SexyTummies','booty','Hotwife','assinthong','ClopClop','cleavage','Upskirt','bigasses','Sukebei','havoc_bot','bestofcollege','gifsgonewild','UnderwearGW','tight_shorts','shorthairchicks','Unashamed','Blonde','WorkIt','Rule34LoL','brunette','simps','pokies','SoFuckable','NSFW_Japan','porninfifteenseconds','tanlines','dirtykikpals','photoplunder','aa_cups','bestofboobies','OnHerKnees','skinnytail','YogaPants','nsfwcosplay','FacialFun','Saggy','Playboy','whooties','IndianBabes','Ebony','kinksters_gone_wild','iWantToFuckHer','jilling','AsianNSFW','GirlswithNeonHair','GloriaV','RepressedGoneWild','AthleticGirls','ExhibitionistSex','asstastic','celebnsfw','redheads','Hotchickswithtattoos','curvy','wincest','BigBlackBootyGIFS','bigareolas','workgonewild','WtSSTaDaMiT','homegrowntits','TinyTits','anal','PetiteGoneWild','ginger','AsianHotties','Nipples','GirlsinStripedSocks','CelebrityNipples','LoveToWatchYouLeave','rule34_comics','DirtySnapchat','TightShorts','camwhores','Pantyfetish','tits','collared','NSFW_Wallpapers','BreastEnvy','petite','littlespace','GiannaMichaels','NSFW_nospam','xray','snapchat_sluts','runwaynudity','highheelsNSFW','suctiondildos','assholegonewild','bodyshots','SexyFrex','ThickChixxx','rule34celebs','hardanal','ravenhaired','WomenOfColour','TributeMe','ChangingRooms','Page3Glamour','PornGifsbyBot','TheHangingBoobs','thighhighs','dykesgonewild','hugenaturals','StretchingIt','AvatarPorn','doujinshi','Femdom','bustyasians','cat_girls','squirting','nsfw2','BeautifulTitsAndAss','Workoutgonewild','LatinasGW','DirtyFamilyPhotos','naturists','BlowjobGifs','wet','Exxxtras','MiddleEasternHotties','CamelToeGirls','IncestPorn','sexygirlsinjeans','leannadecker','mycleavage','CelebrityPussy','comics18_story','ImaginaryBoners','YAYamateurs','MouthWideOpen','bustybabes','insertions','gettingherselfoff','downblouse','girlsinyogapants','groupsex','realbikinis','forcedorgasms','xxxcaptions','nipslip','VintageBabes','OldSchoolCoolNSFW','Xsome','HomemadeNsfw','GirlsCuddling','facesitting','FilthyGirls','CellShots','randomsexygifs','HENTAI_GIF','panties','sex_comics','creampies','gape','petplay','SexInFrontOfOthers','asslick','Presenting','AsianPorn','girlskissing','NSFW_Snapchat','Mooning','NotSafeForNature','SexiestPetites','milf','Boobies','ass','BustyPetite','Sexy','TheUnderbun','adultgifs','BondageBlowjobs','areolas','seethru','augustames','boobgifs','beach','realbrides','UnrealGirls','maturemilf','AsianHottiesGIFS','Curls','buttsex','bestoflingerie','bestofblowjobs','MonsterGirl','mellisaclarke','AssholeBehindThong','vagina','lesdom','HungryButts','PiercedNSFW','girlswhoride','BustyNaturals','ATPorn','hentaibondage','femalepov','JapanesePorn2','HardBoltOns','WeddingRingsShowing','Anjelica_Ebbi','celebsunleashed','thefullbush','WoahPoon','upherbutt','O_Face','GirlsInSocks','xsmallgirls','tightsqueeze','throatpies','vulva','freshfromtheshower','leggingsgonewild','tailplug','booty_gifs','KanMusuNights','lifeisabeach','BoltedOnBooty','PublicFlashing','Puffies','PantiesToTheSide','SluttyStrangers','treatemright','FaceAndAsshole','SceneGirls','naturaltitties','NSFW_Korea','WarriorWomen','SexyInJeans','cameltoe','gonewilder','FaceFuck','ComplexionExcellence','celebsnaked','Ohlympics','milf_nowandforever','SexyGirlsInBoots','NowYouReallySeeMe','jobuds','Facials','AsianFetish','IntenseBDSM','ToplessInJeans','DrunkGirls','Milfinstockings','SUMMERtimeheat','GOTporn','Hotness','ChristianGirls','GirlsWithToys','youtubetitties','selfshots','BoltedOnMaxed','IndianPorn','lactation','Gemplugs','Trim','womenofcolorXXX','SpreadEm','spreading','KateeOwen','OnlyGoodPorn','dreamjobs','PussyJuices','BigBoobsGW','RuinedOrgasms','JulieKennedy','NSFW411','metart','rule34_albums','funsized','starwarsnsfw','Titties','braandpanties','barelylegalteens','UncutPorn','dopplebangher','MariaRyabushkina','Oilporn','rule34pinups','legwrap','twerking','Nekomimi','maturewoman','cuckquean','yuri','Morphs','cunnilingus','NSFW_Hardbodies','rule34feet','pantyhose','TopDownThong','MiaMalkova','titstouchingtits','MyCherryCrush','ButtSharpies','Stoyaxxx','TopsAndBottoms','BreastExpansion','thick_clothed','pronebone','Gravure','BorednIgnored','chickflixxx','StomachDownFeetUp','ButtsAndBareFeet','legsup','PussyMound','spreadeagle','outercourse','sodomy','airboobs','cougars','Spanking']
+nsfw_list = ['gonewild','holdthemoan','RealGirls','nsfw','NSFW_GIF','nsfw_gifs','rule34','LegalTeens','NSFWFunny','GirlsFinishingTheJob','OnOff','60fpsporn','hentai','TittyDrop','hugeboobs','palegirls','StraightGirlsPlaying','HappyEmbarrassedGirls','GWNerdy','wifesharing','AnalGW','Bondage','juicyasians','GirlswithGlasses','datgap','SexyButNotPorn','Blowjobs','ShinyPorn','stockings','LipsThatGrip','fitgirls','lingerie','gonewildcolor','legs','BonerMaterial','rearpussy','boobs','ecchi','grool','boltedontits','bdsm','gonewildcurvy','Amateur','WouldYouFuckMyWife','suicidegirls','altgonewild','buttplug','collegesluts','TotallyStraight','NSFW_HTML5','O_Faces','gonewildstories','gwcumsluts','AsiansGoneWild','GoneWildPlus','HighResNSFW','asshole','lesbians','CelebFakes','Innie','voluptuous','nsfwoutfits','deepthroat','GroupOfNudeGirls','thinspo','GoneWildSmiles','AmateurArchives','BigBoobsGonewild','DarkAngels','pantsu','nsfwhardcore','pussy','Stacked','tightdresses','dirtysmall','TessaFowler','FlashingGirls','treesgonewild','CelebrityButts','facedownassup','EngorgedVeinyBreasts','NSFWCostumes','girlsinleggings','bikinis','FestivalSluts','WomenOfColor','IndiansGoneWild','LabiaGW','boobbounce','leotards','bimbofetish','burstingout','randomsexiness','BDSMGW','latinas','Bottomless_Vixens','trashyboners','SexyTummies','booty','Hotwife','assinthong','ClopClop','cleavage','Upskirt','bigasses','Sukebei','bestofcollege','gifsgonewild','UnderwearGW','tight_shorts','shorthairchicks','Unashamed','Blonde','WorkIt','Rule34LoL','brunette','simps','pokies','SoFuckable','NSFW_Japan','porninfifteenseconds','tanlines','dirtykikpals','aa_cups','bestofboobies','OnHerKnees','skinnytail','YogaPants','nsfwcosplay','FacialFun','Saggy','Playboy','whooties','IndianBabes','Ebony','kinksters_gone_wild','iWantToFuckHer','jilling','AsianNSFW','GirlswithNeonHair','GloriaV','RepressedGoneWild','AthleticGirls','ExhibitionistSex','asstastic','celebnsfw','redheads','Hotchickswithtattoos','curvy','wincest','BigBlackBootyGIFS','bigareolas','WtSSTaDaMiT','homegrowntits','TinyTits','anal','PetiteGoneWild','ginger','AsianHotties','Nipples','GirlsinStripedSocks','CelebrityNipples','LoveToWatchYouLeave','rule34_comics','DirtySnapchat','TightShorts','camwhores','Pantyfetish','tits','collared','NSFW_Wallpapers','BreastEnvy','petite','littlespace','GiannaMichaels','snapchat_sluts','runwaynudity','highheelsNSFW','suctiondildos','assholegonewild','bodyshots','SexyFrex','ThickChixxx','rule34celebs','hardanal','ravenhaired','WomenOfColour','TributeMe','ChangingRooms','Page3Glamour','PornGifsbyBot','TheHangingBoobs','thighhighs','dykesgonewild','hugenaturals','StretchingIt','AvatarPorn','doujinshi','Femdom','bustyasians','cat_girls','squirting','nsfw2','BeautifulTitsAndAss','LatinasGW','DirtyFamilyPhotos','naturists','BlowjobGifs','wet','Exxxtras','MiddleEasternHotties','CamelToeGirls','IncestPorn','sexygirlsinjeans','leannadecker','mycleavage','CelebrityPussy','comics18_story','ImaginaryBoners','YAYamateurs','bustybabes','insertions','gettingherselfoff','downblouse','girlsinyogapants','groupsex','realbikinis','forcedorgasms','xxxcaptions','VintageBabes','OldSchoolCoolNSFW','Xsome','HomemadeNsfw','GirlsCuddling','facesitting','FilthyGirls','CellShots','randomsexygifs','HENTAI_GIF','panties','sex_comics','creampies','gape','petplay','SexInFrontOfOthers','asslick','Presenting','AsianPorn','girlskissing','NSFW_Snapchat','Mooning','NotSafeForNature','SexiestPetites','milf','Boobies','ass','BustyPetite','Sexy','TheUnderbun','adultgifs','BondageBlowjobs','areolas','seethru','augustames','boobgifs','UnrealGirls','maturemilf','AsianHottiesGIFS','Curls','buttsex','bestoflingerie','bestofblowjobs','MonsterGirl','mellisaclarke','AssholeBehindThong','vagina','lesdom','HungryButts','PiercedNSFW','girlswhoride','BustyNaturals','ATPorn','hentaibondage','femalepov','JapanesePorn2','HardBoltOns','WeddingRingsShowing','Anjelica_Ebbi','celebsunleashed','thefullbush','WoahPoon','upherbutt','O_Face','GirlsInSocks','xsmallgirls','tightsqueeze','throatpies','vulva','freshfromtheshower','leggingsgonewild','tailplug','booty_gifs','KanMusuNights','lifeisabeach','BoltedOnBooty','PublicFlashing','Puffies','PantiesToTheSide','SluttyStrangers','treatemright','FaceAndAsshole','SceneGirls','naturaltitties','NSFW_Korea','WarriorWomen','SexyInJeans','cameltoe','gonewilder','FaceFuck','ComplexionExcellence','celebsnaked','Ohlympics','milf_nowandforever','SexyGirlsInBoots','NowYouReallySeeMe','jobuds','Facials','AsianFetish','IntenseBDSM','ToplessInJeans','DrunkGirls','Milfinstockings','SUMMERtimeheat','GOTporn','Hotness','ChristianGirls','GirlsWithToys','youtubetitties','selfshots','BoltedOnMaxed','lactation','Gemplugs','Trim','womenofcolorXXX','SpreadEm','spreading','KateeOwen','OnlyGoodPorn','dreamjobs','PussyJuices','BigBoobsGW','RuinedOrgasms','JulieKennedy','NSFW411','metart','rule34_albums','funsized','starwarsnsfw','Titties','braandpanties','barelylegalteens','dopplebangher','MariaRyabushkina','Oilporn','rule34pinups','legwrap','twerking','Nekomimi','maturewoman','cuckquean','yuri','Morphs','cunnilingus','NSFW_Hardbodies','rule34feet','pantyhose','TopDownThong','MiaMalkova','titstouchingtits','MyCherryCrush','ButtSharpies','Stoyaxxx','TopsAndBottoms','BreastExpansion','thick_clothed','pronebone','Gravure','BorednIgnored','chickflixxx','StomachDownFeetUp','ButtsAndBareFeet','legsup','PussyMound','spreadeagle','outercourse','sodomy','airboobs','cougars','Spanking','futanari','dragonsfuckingcars','watchitforthecat','blueberry','pornhubpoems','glorp','amateur_milfs','3DPorncraft','Beertits','HappyEmbarrasedGirls','RecoilBoobs','DrunkGirls','Translucent_Porn','BraceFace','TheRatio','NSFW_WTF','BizarreSex','ConfusedBoners','AdultNeeds','biggerthanherhead','eyebleach','CentaurGirls','thighdeology']
 #nsfw_list = ['clopclop', 'hentai', 'rule34', 'futanari', 'animearmpits', 'HENTAI_GIF', 'AnimeHentaiGifs', 'ecchigifs', 'nekomimi', 'rule34gifs', 'dragonsfuckingcars']
 
 TOKEN = sys.argv[1]  # get token from command-line
@@ -47,44 +47,49 @@ def random(msg):
     gfycat_bearer = json.loads(json_data)
     
     if msg['text'] == '/random' or msg['text'] == '/random@redditTelegram_bot':
-        result, subredditName = retrieve_random_submission()
+        try:
+            result, subredditName = retrieve_random_submission()
 
-        print(result.url)
+            if result.url[:5] == 'https':
+                gfycat = result.url[8:14]
+            else:
+                gfycat = result.url[7:13]
 
-        if result.url[:5] == 'https':
-            gfycat = result.url[8:14]
-        else:
-            gfycat = result.url[7:13]
-
-        if gfycat == 'gfycat':
-            pos_id = [pos for pos, char in enumerate(result.url) if char == '/']
-            gfycat_id = result.url[pos_id[-1]+1:]
+            if gfycat == 'gfycat':
+                pos_id = [pos for pos, char in enumerate(result.url) if char == '/']
+                gfycat_id = result.url[pos_id[-1]+1:]
             
-            json_data = subprocess.run(["curl", "-X", "GET", "https://api.gfycat.com/v1/gfycats/" + gfycat_id, "-H", "Authorization: Bearer "+gfycat_bearer["access_token"]], capture_output=True).stdout
-            gfycat_json = json.loads(json_data)
+                json_data = subprocess.run(["curl", "-X", "GET", "https://api.gfycat.com/v1/gfycats/" + gfycat_id, "-H", "Authorization: Bearer "+gfycat_bearer["access_token"]], capture_output=True).stdout
+                gfycat_json = json.loads(json_data)
 
-        if result.url[-3:] == 'jpg' or result.url[-3:] == 'png' or (result.url[8:17] == "i.redd.it" and result.url[-3:] != "gif"):
-            bot.sendPhoto(chat_id, result.url)
-        elif result.url[-3:] == 'gif' or result.url[-4:] == 'gifv':
-            bot.sendVideo(chat_id, result.url)
-        elif gfycat == 'gfycat':
-            bot.sendVideo(chat_id, gfycat_json["gfyItem"]["max5mbGif"])
-        elif result.url[8:17] == "v.redd.it":
-            bot.sendVideo(chat_id, result.url)
-        else:
-            bot.sendMessage(chat_id, result.url)
-        bot.sendMessage(chat_id, 'sent from: ' + subredditName)
+            if result.url[-3:] == 'jpg' or result.url[-3:] == 'png' or (result.url[8:17] == "i.redd.it" and result.url[-3:] != "gif"):
+                bot.sendPhoto(chat_id, result.url)
+            elif result.url[-3:] == 'gif' or result.url[-4:] == 'gifv':
+                bot.sendVideo(chat_id, result.url)
+            elif gfycat == 'gfycat':
+                bot.sendVideo(chat_id, gfycat_json["gfyItem"]["max5mbGif"])
+            elif result.url[8:17] == "v.redd.it":
+                bot.sendVideo(chat_id, result.url)
+            else:
+                bot.sendMessage(chat_id, result.url)
+            bot.sendMessage(chat_id, 'sent from: www.reddit.com' + result.permalink, disable_web_page_preview=True)
+        except:
+            print("From subreddit: "+subredditName)
 
     
 
 def retrieve_random_submission():
-    subredditPos = rand.randint(0, len(nsfw_list)-1)
-    submissionPos = rand.randint(1, 50)
-    subredditName = nsfw_list[subredditPos]
-    subreddit = r.subreddit(subredditName)
-    submissions = subreddit.hot(limit=50)
-    submissionsList = list(submissions)
-    submission = submissionsList[submissionPos]
+    try:
+        subredditPos = rand.randint(0, len(nsfw_list)-1)
+        submissionPos = rand.randint(1, 50)
+        subredditName = nsfw_list[subredditPos]
+        subreddit = r.subreddit(subredditName)
+        submissions = subreddit.hot(limit=50)
+        submissionsList = list(submissions)
+        submission = submissionsList[submissionPos]
+    except:
+        print("Error at: "+subredditName)
+        print(e)
 
     return submission, subredditName
 
@@ -114,11 +119,6 @@ def on_inline_query(msg):
                 else:
                     gfycat = response.url[7:13]
 
-                if urlFormat == 'gifv':
-                    response.url = response.url[:-1]
-
-                print(response.url)
-
                 if count == 0:
                     if response.url[-3:] == 'gif' or response.url[-4:] == 'gifv':
                         articles = [InlineQueryResultGif(
@@ -131,7 +131,6 @@ def on_inline_query(msg):
                                         thumb_url=response.url
                                    )]
                     elif gfycat == 'gfycat':
-                        print("testing pos_id")
                         pos_id = [pos for pos, char in enumerate(response.url) if char == '/']
                         gfycat_id = response.url[pos_id[-1]+1:]
                         
@@ -189,7 +188,6 @@ def on_inline_query(msg):
                                         thumb_url=response.url
                                    )]
                     elif gfycat == 'gfycat':
-                        print("getting pos_id")
                         pos_id = [pos for pos, char in enumerate(response.url) if char == '/']
                         gfycat_id = response.url[pos_id[-1]+1:]
 
